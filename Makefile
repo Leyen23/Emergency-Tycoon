@@ -21,6 +21,7 @@ $(TARGET): $(OBJ)
 
 clean:
 	rm -f $(TARGET) $(OBJ)
+	rm -f src/**/*.o emergency_tycoon
 
 fclean: clean
 	rm -rf build
