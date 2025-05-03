@@ -1,6 +1,6 @@
 # Makefile - Emergency Tycoon (C++ + SFML)
 
-CXX := g++
+CXX := clang++
 
 TARGET := emergency_tycoon
 
