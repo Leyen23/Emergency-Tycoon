@@ -3,16 +3,16 @@
 #include "core/Hash.hpp"
 #include "core/Symptoms.hpp"
 
-namespace game 
+namespace core
 {
     //using tabla hash recordar hacerla XD
 enum class Priority //gravedad para clasificalos
     {  
-    low = 1,
-    low_medium = 2,
-    medium = 3,
-    medium_high = 4,
-    high = 5
+    Low = 1,
+    Low_medium = 2,
+    Medium = 3,
+    Medium_high = 4,
+    High = 5
 };
 
 enum class Gender
@@ -24,8 +24,8 @@ enum class Gender
 
 enum class Agegroup
 {
-    child, //6-13
-    teen,   // 14-21
+    Child, //6-13
+    Teen,   // 14-21
     Adult,  // 22-59
     Older_adult //60+
 };

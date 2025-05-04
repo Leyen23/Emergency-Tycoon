@@ -4,27 +4,21 @@
 #include "core/Patient.hpp"
 
 
-namespace game
+namespace core
 {
 enum InjuryType
 {
-    minor_fracture,
-    severence_fracture,
-    minor_burn,
-    severence_burn,
-    minor_cut,
-    severence_cut,
-    fever,
-    pain,
-    nausea,
-    difficulty_breathing,
-    fatigue,
-    numbness,
-    Hemophilia, // SANGRE NO CUAGULA 
-    Duchenne, // Una enfermedad que causa debilidad muscular progresiva y puede afectar a la respiración y el corazón. 
-    hypertension,
-    diabetes,
-    infected_wound
+    Minor_fracture,
+    Severence_fracture,
+    Burn,
+    Minor_cut,
+    Severence_cut,
+    Fever,
+    Pain,
+    Difficulty_breathing,
+    Fatigue,
+    Numbness,
+    Infected_wound
 };
 enum class SeverityGroup
 {
