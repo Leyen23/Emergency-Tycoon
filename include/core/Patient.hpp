@@ -3,9 +3,12 @@
 #include "core/Hash.hpp"
 #include "core/Symptoms.hpp"
 
+
 namespace core
 {
-    //using tabla hash recordar hacerla XD
+
+using MedicalHistory = core::HashTable<std::string, std::string>;
+
 enum class Priority //gravedad para clasificalos
     {  
     Low = 1,
@@ -13,6 +16,16 @@ enum class Priority //gravedad para clasificalos
     Medium = 3,
     Medium_high = 4,
     High = 5
+};
+
+enum class Personality //posibilidades de generacion de pacientes 
+{
+    calm, // paciente perfecto.
+    Depressive, //habla poco y ocultar sintomas.
+    Pedantic, // hacer molestar al doctor.
+    neutral, // sin rasgos
+    Eccentric, // podria inventar sintomas por internet 
+
 };
 
 enum class Gender
@@ -30,51 +43,46 @@ enum class Agegroup
     Older_adult //60+
 };
 
-/*enum class Personality //posibilidades de generacion de pacientes 
-{
-    calm, // paciente perfecto.
-    Depressive, //habla poco y ocultar sintomas.
-    Pedantic, // hacer molestar al doctor.
-    neutral, // sin rasgos
-    Eccentric, // podria inventar sintomas por internet 
 
-};
-*/
-class Patient 
+class Patient
     {
-public:      //Personality personality ver si reagregar
-        auto patient(int id,const std::string& name ,Priority priority,Gender gender,Agegroup age);
+    public:      
+        Patient(int id,
+                const std::string& name ,
+                Priority priority,
+                Personality personality,
+                Gender gender,
+                int age);
 
         //metodos de acceso
         int getid() const;
         const std::string& getname() const;
         Priority getpriority() const;
+        Personality getpersonality() const;
         Gender getgender() const;
-        Agegroup getagegroup() const;
-        
-
-        //Personality getpersonality() const;
-        //historial paciente hash
+        Agegroup getage() const;
+        const MedicalHistory& getHistory() const;
+        const std::vector<core::Injurys>& getInjuries() const;
 
         //mutadores
-        void setname() const;
+        void setname(const std::string& name);
         void setpriority(Priority priority);
         void setgender(Gender gender);
         void setage(Agegroup age);
-        //void setpersonality( Personality personality);
-        // modificar el historial
-
+        void setpersonality( Personality personality);
+        void addhistory(const std::string& key, const std::string& detail);
+        void addInjury (const core::Injurys& injury);
         //proximamente implementar behaviur tree para los pacientes 
 private:
 
         int id_;
         std::string name_;
         Priority priority_;
-        int age_;
+        Personality personality_;
         Gender gender_;
-        //Personality personality_;
-        //historial
+        int age_;
+        MedicalHistory history_;
+        std::vector<core::Injurys> injuries_;
 
-};
-
+    };
 }

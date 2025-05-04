@@ -13,7 +13,7 @@ namespace core
     {
         public:
         //redimensiona la tabla si llega al limite de 0.75 del size actual
-        explicit HashTable(size_t bucketCount = 16, double maxlodfactor = 0.75);
+        explicit HashTable(size_t bucketCount = 16, double maxloadFactor = 0.75);
         
         //acceso de verificacion 
         T& at(const Key& key);
@@ -25,7 +25,7 @@ namespace core
         void insert(const Key& key,const T& value);
 
         //borra la clave dada, arroja out range si no existe
-        void erase(const Key& Key);
+        void erase(const Key& key);
 
         // comprueba la existencia de la clave
         bool contains(const Key& key) const;
@@ -42,7 +42,7 @@ namespace core
 
         std::vector<std::list<std::pair<Key, T>>> buckets_;
         size_t elementcount_;
-        double maxloadFactor_;
+        double maxloadfactor_;
 
         size_t bucketIndex(const Key& key) const;
 
