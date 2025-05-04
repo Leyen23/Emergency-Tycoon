@@ -1,7 +1,7 @@
 # Makefile - Emergency Tycoon (C++ + SFML)
 
 CXX := clang++
-
+CXXFLAGS:= -std+c++17 -Wall -Wextra -Iinclude -I/usr/include/catch2
 TARGET := emergency_tycoon
 
 CXXFLAGS := -Wall -Wextra -std=c++17 -Iinclude
