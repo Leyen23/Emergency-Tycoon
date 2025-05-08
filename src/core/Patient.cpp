@@ -40,12 +40,21 @@ Gender Patient::getgender() const {
     return gender_;
 }
 
-Agegroup Patient::getage() const {
-    // Calcula el grupo etario en base a age_
-    if (age_ >= 6 && age_ <= 13) return Agegroup::Child;
-    else if (age_ >= 14 && age_ <= 21) return Agegroup::Teen;
-    else if (age_ >= 22 && age_ <= 59) return Agegroup::Adult;
-    else return Agegroup::Older_adult;
+Agegroup Patient::getAgeGroup() const 
+    {
+    if (age_ >= 60) 
+    {
+        return Agegroup::Older_adult;
+    }
+    else if (age_ >= 22) 
+    {
+        return Agegroup::Adult;
+    }
+    else if (age_ >= 14) 
+    {
+        return Agegroup::Teen;
+    }
+    else return Agegroup::Child; // Para edades <14
 }
 
 const MedicalHistory& Patient::getHistory() const

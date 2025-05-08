@@ -19,9 +19,9 @@ enum class Priority //gravedad para clasificalos
 
 enum class Personality //posibilidades de generacion de pacientes 
 {
-    calm, // paciente perfecto.
+    Calm, // paciente perfecto.
     Depressive, //habla poco y ocultar sintomas.
-    neutral, // sin rasgos
+    Neutral, // sin rasgos
 
 };
 
@@ -57,7 +57,7 @@ class Patient
         Priority getpriority() const;
         Personality getpersonality() const;
         Gender getgender() const;
-        Agegroup getage() const;
+        Agegroup getAgeGroup() const;
         const MedicalHistory& getHistory() const;
         const std::vector<Injury>& getInjuries() const;
 

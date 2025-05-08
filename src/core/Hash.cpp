@@ -117,8 +117,8 @@ bool HashTable<Key, T>::contains(const Key& key) const
             {
             return true;
         }
-        return false;
     }
+    return false;
 }
 
 // Número de elementos almacenados
