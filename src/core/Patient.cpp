@@ -2,7 +2,8 @@
 #include "core/Hash.hpp"
 
 
-namespace core {
+namespace core 
+{
 
 Patient::Patient(int id,
                 const std::string& name,
@@ -47,11 +48,12 @@ Agegroup Patient::getage() const {
     else return Agegroup::Older_adult;
 }
 
-const MedicalHistory& Patient::getHistory() const {
+const MedicalHistory& Patient::getHistory() const
+    {
     return history_;
 }
 
-const std::vector<core::Injurys>& Patient::getInjuries() const {
+const std::vector<Injury>& Patient::getInjuries() const {
     return injuries_;
 }
 
@@ -86,7 +88,7 @@ void Patient::addhistory(const std::string& key, const std::string& detail) {
     history_.insert(key, detail);
 }
 
-void Patient::addInjury(const core::Injurys& injury) {
+void Patient::addInjury(const core::Injury& injury) {
     injuries_.push_back(injury);
 }
 

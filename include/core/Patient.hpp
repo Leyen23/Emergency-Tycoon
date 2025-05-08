@@ -1,5 +1,6 @@
 #pragma once 
 #include <string>
+#include <vector>
 #include "core/Hash.hpp"
 #include "core/Symptoms.hpp"
 
@@ -12,19 +13,15 @@ using MedicalHistory = core::HashTable<std::string, std::string>;
 enum class Priority //gravedad para clasificalos
     {  
     Low = 1,
-    Low_medium = 2,
-    Medium = 3,
-    Medium_high = 4,
-    High = 5
+    Medium = 2,
+    High = 3
 };
 
 enum class Personality //posibilidades de generacion de pacientes 
 {
     calm, // paciente perfecto.
     Depressive, //habla poco y ocultar sintomas.
-    Pedantic, // hacer molestar al doctor.
     neutral, // sin rasgos
-    Eccentric, // podria inventar sintomas por internet 
 
 };
 
@@ -62,7 +59,7 @@ class Patient
         Gender getgender() const;
         Agegroup getage() const;
         const MedicalHistory& getHistory() const;
-        const std::vector<core::Injurys>& getInjuries() const;
+        const std::vector<Injury>& getInjuries() const;
 
         //mutadores
         void setname(const std::string& name);
@@ -71,7 +68,7 @@ class Patient
         void setage(Agegroup age);
         void setpersonality( Personality personality);
         void addhistory(const std::string& key, const std::string& detail);
-        void addInjury (const core::Injurys& injury);
+        void addInjury (const Injury& injury);
         //proximamente implementar behaviur tree para los pacientes 
 private:
 
@@ -82,7 +79,7 @@ private:
         Gender gender_;
         int age_;
         MedicalHistory history_;
-        std::vector<core::Injurys> injuries_;
+        std::vector<Injury> injuries_;
 
     };
 }

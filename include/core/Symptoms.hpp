@@ -1,38 +1,38 @@
 #pragma once 
 #include <string>
+#include <vector>
 #include "core/Hash.hpp"
-#include "core/Patient.hpp"
-
 
 namespace core
 {
 enum InjuryType
 {
-    Minor_fracture,
-    Severence_fracture,
+    Fracture,
     Burn,
-    Minor_cut,
-    Severence_cut,
-    Fever,
-    Pain,
-    Difficulty_breathing,
-    Fatigue,
-    Numbness,
-    Infected_wound
+    Cut,
+    Fever
 };
 enum class SeverityGroup
 {
-    Mild, // 1- 3
-    Moderate, // 4-5
-    Severe, // 6-7
-    Critical // 8 10
+    Mild, // 1
+    Moderate, // 2
+    Severe, // 3
     
 };
-class Injurys
+
+std::string toString(InjuryType type);
+
+int defaultSeverity(InjuryType type);
+
+enum class Injurytupe;
+
+class Injury
 {
     public:
     
-    Injurys(InjuryType type, int severity);
+    Injury(InjuryType type, int severity);
+
+    explicit Injury(InjuryType type);
 
     //metodos de acceso
     InjuryType gettypeinjury() const;
