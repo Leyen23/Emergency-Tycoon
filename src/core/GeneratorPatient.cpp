@@ -13,9 +13,9 @@ Patient PatientGenerator::generatePatient()
 {
     static int nextId = 1;
     int id = nextId++;
-    std::string name = generateRandomName();
-    int age = generateRandomAge();
     Gender gender = generateRandomGender();
+    std::string name = generateRandomName(gender);
+    int age = generateRandomAge();
     Personality personality = generateRandomPersonality();
     Priority priority = generateRandomPriority();
 
@@ -44,15 +44,29 @@ Patient PatientGenerator::generatePatient()
 }
 
 // Generar nombre aleatorio
-std::string PatientGenerator::generateRandomName() 
-    {
-    static std::array<std::string, 20> names = {
-        "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Henry", "Ivy", "Jack",
-        "Karen", "Liam", "Mia", "Noah", "Olivia", "Peter", "Quinn", "Rachel", "Steve", "Tina"
-    };
+std::string PatientGenerator::generateRandomName(Gender gender) 
+    { 
+    
+    static std::array<std::string, 10> maleNames = 
+        {  
+        "Alex", "Jesus", "Gustavo", "Jorge", "Leonardo", "Diego", "Ivan", "Pedro", "Franklin", "Valmore"  
+    };  
+    static std::array<std::string, 10> femaleNames =
+        {  
+        "Saray", "Maria", "Evelyn", "Grace", "Janeth", "Maira", "Yoaana", "Sofia", "Sabrina", "Irina"  
+    };  
 
-    std::uniform_int_distribution<size_t> dist(0, names.size() - 1);
-    return names[dist(rng_)];
+    std::uniform_int_distribution<size_t> dist(0, maleNames.size() - 1);  
+
+    // Usa el género para seleccionar la lista
+    if (gender == Gender::Male) 
+        {  
+        return maleNames[dist(rng_)];  
+    } 
+    else 
+        {  
+        return femaleNames[dist(rng_)];  
+    }
 }
 
 // Generar edad entre 1-100 y asegurar que corresponda a un Agegroup

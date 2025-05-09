@@ -17,7 +17,7 @@ private:
     std::mt19937 rng_; // Motor de números aleatorios
 
     // Helpers para generar atributos aleatorios
-    std::string generateRandomName();
+    std::string generateRandomName(Gender gender);
     int generateRandomAge();
     Agegroup determineAgeGroup(int age);
     Gender generateRandomGender();
