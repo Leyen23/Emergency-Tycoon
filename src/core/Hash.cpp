@@ -110,14 +110,15 @@ template<typename Key, typename T>
 bool HashTable<Key, T>::contains(const Key& key) const 
     {
     size_t idx = bucketIndex(key);
+    
     for (const auto& kv : buckets_[idx]) 
         {
         if (kv.first == key) 
             {
             return true;
         }
-        return false;
     }
+    return false;
 }
 
 // Número de elementos almacenados
